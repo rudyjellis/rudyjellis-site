@@ -70,7 +70,7 @@
         header {
             background: linear-gradient(135deg, #004225 0%, #003d20 100%);
             color: white;
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
             border-bottom: 3px solid #00d084;
         }
@@ -140,6 +140,18 @@
             margin-bottom: 80px;
         }
 
+        section:nth-child(even) {
+            background: #f8faf9;
+            padding: 60px 20px;
+            margin-left: -20px;
+            margin-right: -20px;
+            margin-bottom: 80px;
+        }
+
+        section:nth-child(even) .card {
+            background: white;
+        }
+
         section h2 {
             font-size: 2.2em;
             margin-bottom: 30px;
@@ -161,6 +173,7 @@
             font-size: 1.1em;
             margin-bottom: 15px;
             line-height: 1.8;
+            color: #444;
         }
 
         .bio-intro strong {
@@ -185,7 +198,7 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 12px 28px rgba(0, 210, 132, 0.15), 0 8px 20px rgba(0,0,0,0.12);
         }
 
         .card h3 {
@@ -195,7 +208,7 @@
         }
 
         .card p {
-            color: #555;
+            color: #444;
             line-height: 1.7;
         }
 
@@ -217,6 +230,7 @@
             border-radius: 8px;
             border-left: 5px solid #00d084;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            color: #444;
         }
 
         .project-item h3 {
@@ -242,7 +256,7 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             font-size: 1em;
@@ -250,10 +264,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 66, 37, 0.2);
         }
 
         .cta-button:hover {
             background: #003d20;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 66, 37, 0.3);
         }
 
         .cta-button.secondary {
@@ -553,15 +570,10 @@
             <p style="margin-bottom: 30px; color: #666;">Each project is a learning lab for testing AI tooling, automation, and product-building approaches.</p>
             
             <div class="project-item">
-                <h3>Project Name TBD</h3>
-                <span class="project-status">Ideation Phase</span>
-                <p>Exploring automation frameworks for founder workflows. Details coming soon.</p>
-            </div>
-            
-            <div class="project-item">
-                <h3>Your Next Build</h3>
-                <span class="project-status">Planning</span>
-                <p>A space to document and share the experiments, learnings, and frameworks that emerge from side project exploration.</p>
+                <h3>Couple Pay</h3>
+                <span class="project-status" style="background: #00d084; color: white;">Live</span>
+                <p>A credit card paydown app for couples. Track balances together, choose snowball or avalanche strategies, and celebrate milestones as a team. No bank connectivity required.</p>
+                <a href="https://couplepayapp.com/" target="_blank" rel="noopener noreferrer" class="cta-button" style="margin-top: 15px; display: inline-flex;">Visit Couple Pay</a>
             </div>
         </section>
 

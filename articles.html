@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - Rudy J. Ellis</title>
+    <meta name="description" content="Long-form articles and threads from Rudy J. Ellis on AI, startups, founder frameworks, and building with agentic tools.">
+    <meta name="keywords" content="founder articles, startup insights, AI writing, agentic AI, entrepreneurship">
+    <meta name="author" content="Rudy J. Ellis">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Articles - Rudy J. Ellis">
+    <meta property="og:description" content="Long-form articles and threads on AI, startups, and founder frameworks.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rudyjellis.com/articles">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@rudyjellis">
+    <link rel="canonical" href="https://rudyjellis.com/articles">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F2EB;
+            --cream-dark: #E8E4DB;
+            --ink: #1A1A1A;
+            --ink-soft: #6B6B6B;
+            --mint: #00D084;
+            --coral: #E86A4A;
+            --coral-soft: rgba(232, 106, 74, 0.1);
+            --forest: #004225;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--cream);
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--forest) 0%, #006B3A 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--mint);
+            position: relative;
+            overflow: hidden;
+            animation: slideDownFade 0.8s ease-out;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(0, 208, 132, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(232, 106, 74, 0.1) 0%, transparent 50%),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.03) 2px,
+                    rgba(255, 255, 255, 0.03) 4px
+                );
+            pointer-events: none;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 208, 132, 0.2) 0%, transparent 70%);
+            top: -50px;
+            right: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+
+        header h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        header .subtitle {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        header .floating-shape {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header .shape-1 {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(232, 106, 74, 0.15);
+            top: 20%;
+            left: 15%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        header .shape-2 {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(0, 208, 132, 0.15);
+            bottom: 20%;
+            left: 20%;
+            animation: float 7s ease-in-out infinite reverse;
+        }
+
+        nav {
+            background: var(--cream-dark);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 100;
+            animation: fadeIn 0.6s ease-out 0.05s both;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 25px;
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+            transition: background 0.3s;
+            border-bottom: 3px solid transparent;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav a:hover {
+            background: var(--cream);
+            border-bottom-color: var(--coral);
+        }
+
+        nav a.active {
+            border-bottom-color: var(--mint);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .page-intro {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: slideUpFade 0.8s ease-out 0.1s both;
+        }
+
+        .page-intro h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.8em;
+            color: var(--ink);
+            margin-bottom: 15px;
+        }
+
+        .page-intro p {
+            color: var(--ink-soft);
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .articles-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .article-card {
+            background: var(--cream-dark);
+            border-radius: 16px;
+            padding: 30px;
+            border-left: 4px solid;
+            border-image: linear-gradient(to bottom, var(--mint), var(--coral)) 1;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            animation: slideUpFade 0.8s ease-out both;
+        }
+
+        .article-card:nth-child(1) { animation-delay: 0.2s; }
+        .article-card:nth-child(2) { animation-delay: 0.3s; }
+        .article-card:nth-child(3) { animation-delay: 0.4s; }
+
+        .article-card .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .article-card .article-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85em;
+            color: var(--ink-soft);
+        }
+
+        .article-card .article-tag {
+            display: inline-block;
+            background: var(--coral-soft);
+            color: var(--coral);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.8em;
+            font-weight: 600;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .article-card h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.4em;
+            color: var(--ink);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .article-card .article-excerpt {
+            color: var(--ink-soft);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .article-card .embed-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        /* Placeholder for X embeds */
+        .embed-placeholder {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--ink-soft);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .embed-placeholder .x-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .embed-placeholder p {
+            font-size: 0.9em;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: var(--cream-dark);
+            padding: 60px 40px;
+            border-radius: 16px;
+            border-left: 4px solid;
+            border-image: linear-gradient(to bottom, var(--mint), var(--coral)) 1;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.8em;
+            color: var(--ink);
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: var(--ink-soft);
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--coral);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'DM Mono', monospace;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            min-height: 44px;
+            box-shadow: 0 4px 12px rgba(232, 106, 74, 0.25);
+        }
+
+        .cta-button:hover {
+            background: #d85a3a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(232, 106, 74, 0.35);
+        }
+
+        footer {
+            background: var(--forest);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.03) 2px,
+                    rgba(255, 255, 255, 0.03) 4px
+                );
+            pointer-events: none;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-family: 'DM Sans', sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-links a {
+            color: var(--mint);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-family: 'DM Sans', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--coral);
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes slideDownFade {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 50px 15px;
+            }
+
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                padding: 12px 20px;
+                font-size: 0.9em;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+
+            .article-card {
+                padding: 20px;
+            }
+
+            .article-card h3 {
+                font-size: 1.2em;
+            }
+
+            .cta-section {
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 40px 10px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .container {
+                padding: 30px 10px;
+            }
+
+            .article-card {
+                padding: 15px;
+            }
+
+            .social-links {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .social-links a {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <h1>Articles</h1>
+        <p class="subtitle">Long-form thoughts on AI, startups, and building</p>
+    </header>
+
+    <nav role="navigation" aria-label="Main navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#focus">Focus</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="articles.html" class="active">Articles</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="page-intro">
+            <h2>What I'm Writing About</h2>
+            <p>Founder frameworks, AI experiments, and lessons learned from a decade of building. Originally posted on X.</p>
+        </div>
+
+        <div class="articles-list">
+            <!-- Article 1 -->
+            <article class="article-card">
+                <div class="article-meta">
+                    <span class="article-date">Jan 7, 2026</span>
+                    <span class="article-tag">AI & Automation</span>
+                </div>
+                <h3>Building with AI Agents: What Actually Works</h3>
+                <p class="article-excerpt">A breakdown of patterns I've found effective when building with AI agents. What to automate, what to keep human, and how to design for reliability.</p>
+                <div class="embed-container">
+                    <blockquote class="twitter-tweet"><p lang="zxx" dir="ltr"><a href="https://t.co/llcUsyG5v9">https://t.co/llcUsyG5v9</a></p>&mdash; Rudy J. Ellis (@rudyjellis) <a href="https://twitter.com/rudyjellis/status/2008955366336549213?ref_src=twsrc%5Etfw">January 7, 2026</a></blockquote>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Follow Along</h2>
+            <p>Get real-time updates and join the conversation on X.</p>
+            <a href="https://x.com/rudyjellis" target="_blank" rel="noopener noreferrer" class="cta-button">Follow @rudyjellis</a>
+        </section>
+    </div>
+
+    <footer role="contentinfo">
+        <p>&copy; <span id="year"></span> Rudy J. Ellis. Built with intention and a bit of AI.</p>
+        <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+        <div class="social-links">
+            <a href="https://x.com/rudyjellis" target="_blank">Twitter</a>
+            <a href="https://www.linkedin.com/in/rudyjellis/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/rudyjellis" target="_blank">GitHub</a>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.7;">Go Eagles</p>
+    </footer>
+
+    <!-- X embed script - loads once for all embeds -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>

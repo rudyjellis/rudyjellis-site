@@ -772,6 +772,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#focus">Focus</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="articles.html">Articles</a></li>
             <li><a href="#insights">Insights</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -866,7 +867,8 @@
     </div>
 
     <footer role="contentinfo">
-        <p>&copy; 2025 Rudy J. Ellis. Built with intention and a bit of AI.</p>
+        <p>&copy; <span id="year"></span> Rudy J. Ellis. Built with intention and a bit of AI.</p>
+        <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
         <div class="social-links">
             <a href="https://x.com/rudyjellis" target="_blank">Twitter</a>
             <a href="https://www.linkedin.com/in/rudyjellis/" target="_blank">LinkedIn</a>
